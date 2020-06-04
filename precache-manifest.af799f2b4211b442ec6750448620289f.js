@@ -1,11 +1,11 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "7b72b9ee210cbc005eb1f35549ae9cdb",
+    "revision": "375b49960a48ef8de27f457533732d6a",
     "url": "/dailyui/index.html"
   },
   {
-    "revision": "85fad79c123e7cc78313",
-    "url": "/dailyui/static/css/main.a59881ee.chunk.css"
+    "revision": "1b01d0f06bbc3538cc63",
+    "url": "/dailyui/static/css/main.487b0c9d.chunk.css"
   },
   {
     "revision": "ca970f8636a2fac50079",
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/dailyui/static/js/2.0860da63.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "85fad79c123e7cc78313",
-    "url": "/dailyui/static/js/main.12cc8454.chunk.js"
+    "revision": "1b01d0f06bbc3538cc63",
+    "url": "/dailyui/static/js/main.fa6e012a.chunk.js"
   },
   {
     "revision": "556412a3b4b8b8e3d514",
