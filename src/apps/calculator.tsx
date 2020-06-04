@@ -2,28 +2,59 @@ import React, { useState } from 'react'
 import '../styles/calculator.css'
 
 const Calculator = () => {
-	const [ total, setTotal ] = useState(0)
 	const [ operantWait, setOperantWait ] = useState(false)
 	const [ numbInput, setNumbInput ] = useState(0)
 	const [ currOperand, setCurrOperand ] = useState(String)
+	const [ decimal, setDecimal ] = useState(false)
+	const [ showDecimal, setShowDecimal ] = useState(false)
+
+	const handleDecimal = () => {
+		setDecimal(() => true)
+	}
+
+	const toFixedIfNecessary = (numb: any) => {
+		if (Math.ceil(Math.log10(numb + 1)) > 8) {
+			return +parseFloat(numb).toFixed(4).toString().substring(0,7) + "..."
+		} else {
+			return +parseFloat(numb).toFixed(4);
+		}
+	}
+
 
 	const handleNumber = (numb: number) => {
 		if (operantWait) {
 			if (currOperand === '+') {
-				setTotal(() => numbInput + numb)
+				setNumbInput(() => Number(numbInput) + numb)
+				setCurrOperand(() => '')
 			} else if (currOperand === '-') {
-				setTotal(() => numbInput - numb)
-			} else if (currOperand === '/') {
-				setTotal(() => numbInput / numb)
+				setNumbInput(() => Number(numbInput) - numb)
+				setCurrOperand(() => '')
+			} else if (currOperand === '÷') {
+				setNumbInput(() => Number(numbInput) / numb)
+				setCurrOperand(() => '')
 			} else if (currOperand === 'x') {
-				setTotal(() => numbInput * numb)
+				setNumbInput(() => Number(numbInput) * numb)
+				setCurrOperand(() => '')
 			}
 			setOperantWait(() => false)
 		} else if (!operantWait && numbInput !== 0) {
-			let newNumb: any = numbInput + "" + numb
-			setNumbInput(() => newNumb)
+			if (showDecimal) {
+				setNumbInput(() => Number(numbInput + '' + numb))
+			} else {
+				if (!decimal) {
+					setNumbInput(() => Number(numbInput + '' + numb))
+				} else if (decimal) {
+					setNumbInput(() => Number(numbInput + '.' + numb))
+					setShowDecimal(() => true)
+				}
+			}
 		} else if (!operantWait && numbInput === 0) {
-			setNumbInput(() => numb)
+			if (!decimal) {
+				setNumbInput(() => numb)
+			} else if (decimal) {
+				setNumbInput(() => Number(numbInput + '.' + numb))
+				setShowDecimal(() => true)
+			}
 		}
 	}
 
@@ -33,7 +64,6 @@ const Calculator = () => {
 	}
 
 	const handleReset = () => {
-		setTotal(() => 0)
 		setOperantWait(() => false)
 		setNumbInput(() => 0)
 		setCurrOperand(() => '')
@@ -45,13 +75,14 @@ const Calculator = () => {
 		<div className="flex">
 			<div className="calc-container">
 				<div className="top-container">
+					<div className="num-side" />
 					<div className="numdisplay-border">
-					<div className="number-display">
-						{total ? total : numbInput + ' ' + currOperand}
-						<p>.</p>
+						<div className="number-display">
+							{currOperand} {toFixedIfNecessary(numbInput)}
+							<p>.</p>
+						</div>
 					</div>
-
-					</div>
+					<div className="num-side" />
 				</div>
 				<div className="middle-container">
 					<div>Texas Instruments</div>
@@ -69,8 +100,8 @@ const Calculator = () => {
 							<div>M+</div>
 						</div>
 						<div className="top-right">
-							<div onClick={() => handleOperand('/')}>÷</div>
-							<div onClick={() => handleOperand('x')}>X</div>
+							<div onClick={() => handleOperand('÷')}>&nbsp;÷</div>
+							<div onClick={() => handleOperand('x')}>&nbsp;X</div>
 						</div>
 						<div className="numbers">
 							{numbers.map((item) => {
@@ -84,14 +115,14 @@ const Calculator = () => {
 
 						<div className="bottom-left">
 							<div onClick={handleReset}>ON/C</div>
-							<div>0</div>
-							<div>.</div>
+							<div onClick={() => handleNumber(0)}>0</div>
+							<div onClick={handleDecimal}>.</div>
 						</div>
 
 						<div className="bottom-right">
-							<div onClick={() => handleOperand('-')}>-</div>
-							<div onClick={() => handleOperand('+')}>+</div>
-							<div>=</div>
+							<div onClick={() => handleOperand('-')}>&nbsp;–</div>
+							<div onClick={() => handleOperand('+')}>&nbsp;+</div>
+							<div>&nbsp;=</div>
 						</div>
 					</div>
 				</div>
