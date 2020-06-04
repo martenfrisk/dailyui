@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/dailyui/static/css/main.a59881ee.chunk.css",
+    "main.js": "/dailyui/static/js/main.12cc8454.chunk.js",
+    "main.js.map": "/dailyui/static/js/main.12cc8454.chunk.js.map",
+    "runtime-main.js": "/dailyui/static/js/runtime-main.e13a8733.js",
+    "runtime-main.js.map": "/dailyui/static/js/runtime-main.e13a8733.js.map",
+    "static/js/2.0860da63.chunk.js": "/dailyui/static/js/2.0860da63.chunk.js",
+    "static/js/2.0860da63.chunk.js.map": "/dailyui/static/js/2.0860da63.chunk.js.map",
+    "index.html": "/dailyui/index.html",
+    "precache-manifest.cb439c308bd625a8903959610e71803f.js": "/dailyui/precache-manifest.cb439c308bd625a8903959610e71803f.js",
+    "service-worker.js": "/dailyui/service-worker.js",
+    "static/css/main.a59881ee.chunk.css.map": "/dailyui/static/css/main.a59881ee.chunk.css.map",
+    "static/js/2.0860da63.chunk.js.LICENSE.txt": "/dailyui/static/js/2.0860da63.chunk.js.LICENSE.txt",
+    "static/media/calculator.css": "/dailyui/static/media/Digital7Monoitalic.f6e67539.ttf"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.e13a8733.js",
+    "static/js/2.0860da63.chunk.js",
+    "static/css/main.a59881ee.chunk.css",
+    "static/js/main.12cc8454.chunk.js"
+  ]
+}
