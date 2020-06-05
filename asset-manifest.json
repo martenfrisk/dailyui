@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/dailyui/static/css/main.2a24f3b3.chunk.css",
-    "main.js": "/dailyui/static/js/main.51435a70.chunk.js",
-    "main.js.map": "/dailyui/static/js/main.51435a70.chunk.js.map",
+    "main.js": "/dailyui/static/js/main.a6b2c689.chunk.js",
+    "main.js.map": "/dailyui/static/js/main.a6b2c689.chunk.js.map",
     "runtime-main.js": "/dailyui/static/js/runtime-main.e13a8733.js",
     "runtime-main.js.map": "/dailyui/static/js/runtime-main.e13a8733.js.map",
     "static/js/2.b45278bf.chunk.js": "/dailyui/static/js/2.b45278bf.chunk.js",
     "static/js/2.b45278bf.chunk.js.map": "/dailyui/static/js/2.b45278bf.chunk.js.map",
     "index.html": "/dailyui/index.html",
-    "precache-manifest.0df379cbef198099c6b1964033e79718.js": "/dailyui/precache-manifest.0df379cbef198099c6b1964033e79718.js",
+    "precache-manifest.f814fa15163713b8ac93598ea30747d7.js": "/dailyui/precache-manifest.f814fa15163713b8ac93598ea30747d7.js",
     "service-worker.js": "/dailyui/service-worker.js",
     "static/css/main.2a24f3b3.chunk.css.map": "/dailyui/static/css/main.2a24f3b3.chunk.css.map",
     "static/js/2.b45278bf.chunk.js.LICENSE.txt": "/dailyui/static/js/2.b45278bf.chunk.js.LICENSE.txt",
@@ -25,6 +25,6 @@
     "static/js/runtime-main.e13a8733.js",
     "static/js/2.b45278bf.chunk.js",
     "static/css/main.2a24f3b3.chunk.css",
-    "static/js/main.51435a70.chunk.js"
+    "static/js/main.a6b2c689.chunk.js"
   ]
 }
