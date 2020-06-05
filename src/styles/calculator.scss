@@ -9,7 +9,7 @@ $s: 4px;
 
 @font-face {
   font-family: 'Digital-7';
-  src: local('Digital7'), url(../fonts/Digital7Monoitalic.ttf) format('tff');
+  src: local('Digital-7'), url('../fonts/Digital7.ttf') format('tff');
 }
 
 @mixin numpad-key {
