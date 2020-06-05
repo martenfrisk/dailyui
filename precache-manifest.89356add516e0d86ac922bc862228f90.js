@@ -1,23 +1,23 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "e201e63fa12b978e89572d18fd0622cd",
+    "revision": "8640cf36d2735ae74160063bb274a2c2",
     "url": "/dailyui/index.html"
   },
   {
-    "revision": "fa7a43e207ce516bf88f",
+    "revision": "c5d73d183f9573183024",
     "url": "/dailyui/static/css/main.2a24f3b3.chunk.css"
   },
   {
-    "revision": "4cd1e5259eea08495fdc",
-    "url": "/dailyui/static/js/2.b45278bf.chunk.js"
+    "revision": "3dac61d2fbfc4bd6f10d",
+    "url": "/dailyui/static/js/2.54e252aa.chunk.js"
   },
   {
     "revision": "0b08544f54c9906705be39c03b7e79ad",
-    "url": "/dailyui/static/js/2.b45278bf.chunk.js.LICENSE.txt"
+    "url": "/dailyui/static/js/2.54e252aa.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "fa7a43e207ce516bf88f",
-    "url": "/dailyui/static/js/main.0c50e744.chunk.js"
+    "revision": "c5d73d183f9573183024",
+    "url": "/dailyui/static/js/main.c36a4691.chunk.js"
   },
   {
     "revision": "556412a3b4b8b8e3d514",
