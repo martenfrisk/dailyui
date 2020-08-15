@@ -14,6 +14,7 @@
     "@types/react-router-dom": "^5.1.5",
     "autoprefixer": "^9.8.0",
     "gh-pages": "^3.0.0",
+    "moment": "2.19.3",
     "postcss-cli": "^7.1.1",
     "random-profile-generator": "^2.3.0",
     "react": "^16.13.1",
