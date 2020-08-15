@@ -33,7 +33,6 @@ const Calculator = () => {
 	}
 
 	const handleNumber = (numb: number) => {
-
 		if (operantWait) {
 			if (!activateDecimal) {
 				setNumbInput((prevState) => ({
@@ -49,20 +48,39 @@ const Calculator = () => {
 
 			setShowNumbInput(() => true)
 			setShowInitNumber(() => false)
-
 		} else if (!operantWait && initNumber.int !== 0) {
 			if (activateDecimal) {
+				if (total !== '') {
+					setNumbInput((prevState) => ({
+						...prevState,
+						dec: Number(prevState.dec + '' + numb)
+					}))
+					setShowTotal(() => false)
+					setShowNumbInput(() => true)
+					setShowInitNumber(() => false)
+				} else {
 					setInitNumber((prevState) => ({
 						...prevState,
 						dec: Number(prevState.dec + '' + numb)
 					}))
-				} else {
-					setInitNumber((prevState) => ({
+				}
+			} else if (!activateDecimal) {
+				if (total !== '') {
+					setNumbInput((prevState) => ({
 						...prevState,
 						int: Number(prevState.int + '' + numb)
 					}))
-				}
-				setShowInitNumber(() => true)
+					setShowTotal(() => false)
+					setShowNumbInput(() => true)
+					setShowInitNumber(() => false)
+				} else {
+				setInitNumber((prevState) => ({
+					...prevState,
+					int: Number(prevState.int + '' + numb)
+				}))}
+			}
+			setShowInitNumber(() => true)
+			
 		} else if (!operantWait && initNumber.int === 0) {
 			if (!activateDecimal) {
 				setInitNumber((prevState) => ({
@@ -77,6 +95,9 @@ const Calculator = () => {
 				}))
 				setShowInitNumber(() => true)
 			}
+			if (total !== '') {
+				setShowTotal(() => false)
+			}
 		}
 	}
 
@@ -85,7 +106,7 @@ const Calculator = () => {
 		setOperantWait(() => true)
 		setActivateDecimal(() => false)
 		setShowInitNumber(() => true)
-		if (total !== "0") {
+		if (total !== '0') {
 			setShowTotal(() => false)
 		}
 	}
@@ -96,7 +117,7 @@ const Calculator = () => {
 			int: 0,
 			dec: 0
 		}))
-		setTotal("0")
+		setTotal('')
 		setInitNumber(() => ({
 			int: 0,
 			dec: 0
@@ -110,11 +131,17 @@ const Calculator = () => {
 
 	const totalSplit = (numb: number) => {
 		let splitInt = Math.trunc(numb)
-		let splitDec = numb.toString().split('.')[1]
-		
+		let decTemp = Number(numb.toString().split('.')[1])
+		let splitDec: number
+		if (decTemp) {
+			splitDec = decTemp
+		} else {
+			splitDec = 0
+		}
+
 		setInitNumber((prevState) => ({
 			...prevState,
-			int: splitInt,
+			int: Number(splitInt),
 			dec: Number(splitDec)
 		}))
 	}
@@ -137,32 +164,50 @@ const Calculator = () => {
 			totalSplit(calc)
 			setTotal(() => calc.toString())
 		}
-		
+
 		setOperantWait(() => false)
 		setCurrOperand(() => '')
 		setShowTotal(() => true)
 		setShowNumbInput(() => false)
-		setShowInitNumber(() => false)	
-	
+		setShowInitNumber(() => false)
+		setActivateDecimal(() => false)
 		setNumbInput(() => ({
 			int: 0,
 			dec: 0
 		}))
 	}
 
-
 	const numbers = [ 9, 8, 7, 6, 5, 4, 3, 2, 1 ]
 
 	return (
 		<div className="flex">
+			{/* {'operantWait=' + JSON.stringify(operantWait)}
+			<br />
+			{'currOperand=' + JSON.stringify(currOperand)}
+			<br />
+			{'activateDecimal=' + JSON.stringify(activateDecimal)}
+			<br />
+			{'numbInput=' + JSON.stringify(numbInput)}
+			<br />
+			{'total=' + JSON.stringify(total)}
+			<br />
+			{'initNumber=' + JSON.stringify(initNumber)}
+			<br />
+			{'showNumbInput=' + JSON.stringify(showNumbInput)}
+			<br />
+			{'showTotal=' + JSON.stringify(showTotal)}
+			<br />
+			{'showInitNumber=' + JSON.stringify(showInitNumber)} */}
 			<div className="calc-container">
 				<div className="top-container">
 					<div className="num-side" />
 					<div className="numdisplay-border">
 						<div className="number-display">
 							{currOperand && `${currOperand} `}
-							{showTotal && toFixedIfNecessary(total)}
-							{showNumbInput && !showInitNumber && toFixedIfNecessary(Number(numbInput.int + '.' + numbInput.dec))}
+							{showTotal && toFixedIfNecessary(Number(total))}
+							{showNumbInput &&
+								!showInitNumber &&
+								toFixedIfNecessary(Number(numbInput.int + '.' + numbInput.dec))}
 							{showInitNumber && toFixedIfNecessary(Number(initNumber.int + '.' + initNumber.dec))}.&nbsp;
 						</div>
 					</div>
